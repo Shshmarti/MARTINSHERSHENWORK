@@ -13,7 +13,7 @@
     }
 
     .container {
-      max-width: 500px;
+      max-width: 700px;
       margin: 0 auto;
       padding: 20px;
     }
@@ -23,7 +23,6 @@
       margin-bottom: 20px;
     }
 
-    /* кнопка назад */
     .back {
       display: inline-block;
       margin-bottom: 20px;
@@ -32,22 +31,39 @@
       font-size: 14px;
     }
 
-    /* видео */
-    .video {
-      margin-bottom: 40px;
+    /* 🔥 GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    /* элементы */
+    .item {
+      width: 100%;
     }
 
     iframe {
       width: 100%;
-      height: 200px;
+      height: 180px;
       border: none;
+      display: block;
     }
 
-    /* фото */
     img {
       width: 100%;
-      margin-bottom: 40px;
       display: block;
+    }
+
+    /* 📱 мобилка */
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      iframe {
+        height: 220px;
+      }
     }
   </style>
 </head>
@@ -60,23 +76,31 @@
 
     <h1>WORKS</h1>
 
-    <!-- 🎥 видео -->
-    <div class="video">
-      <iframe 
-        src="https://www.youtube.com/embed/22bKzNIpnkE" 
-        allowfullscreen>
-      </iframe>
+    <div class="grid">
+
+      <!-- 🎥 видео -->
+      <div class="item">
+        <iframe src="https://www.youtube.com/embed/22bKzNIpnkE?controls=0&modestbranding=1"></iframe>
+      </div>
+
+      <div class="item">
+        <iframe src="https://www.youtube.com/embed/uFL49LiiqxM?controls=0&modestbranding=1"></iframe>
+      </div>
+
+      <!-- 📸 фото -->
+      <div class="item">
+        <img src="images/pic1.jpg">
+      </div>
+
+      <div class="item">
+        <img src="images/pic2.jpg">
+      </div>
+
+      <div class="item">
+        <img src="images/pic3.jpg">
+      </div>
+
     </div>
-
-    <div class="video">
-  <iframe src="https://www.youtube.com/embed/uFL49LiiqxM" allowfullscreen></iframe>
-</div>
-
-    <!-- 📸 фото -->
-    <img src="images/pic1.jpg">
-    <img src="images/pic2.jpg">
-    <img src="images/pic3.jpg">
-    
 
   </div>
 
