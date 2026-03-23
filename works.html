@@ -13,7 +13,7 @@
     }
 
     .container {
-      max-width: 900px;
+      max-width: 500px;
       margin: 0 auto;
       padding: 20px;
     }
@@ -32,41 +32,11 @@
       font-size: 14px;
     }
 
-    /* 🔥 СЕТКА (сильнее видно) */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    /* 🔥 КАРТОЧКИ */
-    .card {
-      background: rgba(0,0,0,0.2);
-      padding: 10px;
-      border-radius: 12px;
-    }
-
-    iframe {
-      width: 100%;
-      height: 220px;
-      border: none;
-      display: block;
-    }
-
+    /* 🔥 просто картинки без рамок */
     img {
       width: 100%;
       display: block;
-    }
-
-    /* 📱 МОБИЛКА */
-    @media (max-width: 600px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      iframe {
-        height: 240px;
-      }
+      margin-bottom: 40px;
     }
   </style>
 </head>
@@ -75,27 +45,13 @@
 
   <div class="container">
 
-    <a href="/index.html" class="back">← Back</a>
+    <a href="index.html" class="back">← Back</a>
 
     <h1>WORKS</h1>
 
-    <div class="grid">
-
-
-      <!-- 📸 -->
-      <div class="card">
-        <img src="images/pic1.jpg">
-      </div>
-
-      <div class="card">
-        <img src="images/pic2.jpg">
-      </div>
-
-      <div class="card">
-        <img src="images/pic3.jpg">
-      </div>
-
-    </div>
+    <img src="images/pic1.jpg">
+    <img src="images/pic2.jpg">
+    <img src="images/pic3.jpg">
 
   </div>
 
