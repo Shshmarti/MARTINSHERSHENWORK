@@ -56,17 +56,23 @@
     }
 
     /* 📱 меню */
-    .side-menu {
+.side-menu {
   position: fixed;
-  top: 20px;
-  right: -100%;
-  width: 220px;
-  background: #f5e909;
+  top: 80px;
+  right: 20px;
+
+  width: 220px; /* меньше */
+  padding: 30px 25px;
+
+  background: rgba(255, 255, 255, 0.15); /* прозрачность */
+  backdrop-filter: blur(20px);
+
+  border-radius: 20px;
+
   transition: 0.3s;
   z-index: 9998;
-  padding: 60px 20px 20px 20px;
-  border-radius: 10px;
 }
+
 
     body.menu-open .side-menu {
       right: 0;
