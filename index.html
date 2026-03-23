@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      background: #d30000;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    h1 {
+      font-size: 20px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 5px 20px;
+    }
+
+    img {
+      width: 100%;
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    /* 🔥 кнопка справа */
+    .menu-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 30px;
+      height: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: transparent;
+      border: none;
+      z-index: 9999;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 100%;
+      background: black;
+      transition: 0.3s;
+    }
+
+    .menu-toggle.active span {
+    opacity: 0;
+    }
+
+    /* 📱 меню */
+    .side-menu {
+  position: fixed;
+  top: 20px;
+  right: -100%;
+  width: 220px;
+  background: white;
+  transition: 0.3s;
+  z-index: 9998;
+  padding: 60px 20px 20px 20px;
+  border-radius: 10px;
+}
+
+    body.menu-open .side-menu {
+      right: 0;
+    }
+
+    .side-menu a {
+      display: block;
+      margin-bottom: 20px;
+      text-decoration: none;
+      color: black;
+      font-size: 18px;
+    }
+
+    /* ❌ крестик */
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    .close-btn span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 25px;
+      height: 2px;
+      background: black;
+      transform-origin: center;
+    }
+
+    .close-btn span:first-child {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .close-btn span:last-child {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    /* только мобилки */
+    @media (min-width: 768px) {
+      .menu-toggle {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- кнопка -->
+  <button class="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- меню -->
+  <div class="side-menu">
+    
+    <div class="close-btn">
+      <span></span>
+      <span></span>
+    </div>
+
+    <a href="#">Works</a>
+    <a href="mailto:shshmarti@yahoo.com">Contact</a>
+
+  </div>
+
+  <div class="container">
+    <h1>MARTSIN SHERSHAN</h1>
+
+    <img src="images/photo1.jpg">
+    <img src="images/photo2.jpg">
+    <img src="images/photo3.jpg">
+    <img src="images/photo4.jpg">
+    <img src="images/photo5.jpg">
+    <img src="images/photo6.jpg">
+    <img src="images/photo7.jpg">
+    <img src="images/photo8.jpg">
+    <img src="images/photo9.jpg">
+    <img src="images/photo10.jpg">
+    <img src="images/photo11.jpg">
+    <img src="images/photo6.jpg">
+  </div>
+
+  <script>
+    const btn = document.querySelector('.menu-toggle');
+    const closeBtn = document.querySelector('.close-btn');
+
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      document.body.classList.remove('menu-open');
+      btn.classList.remove('active');
+    });
+  </script>
+
+</body>
+</html>
