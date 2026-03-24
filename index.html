@@ -88,33 +88,31 @@
     }
 
     /* 🔥 ГАЛЕРЕЯ */
-    .gallery {
-      position: relative;
-      margin-top: 40px;
-    }
+   .gallery {
+  position: relative;
+  margin-top: 40px;
+}
 
-    .g-slide {
-      display: none;
-    }
+.g-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
 
-    .g-slide.active {
-      display: block;
-    }
+.g-left {
+  left: 10px;
+}
 
-    .g-arrow {
-      position: fixed;
-      bottom: 40px;
-      font-size: 20px;
-      color: white;
-      background: rgba(0,0,0,0.4);
-      padding: 10px 14px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 999;
-    }
-
-    .g-left { left: 20px; }
-    .g-right { right: 20px; }
+.g-right {
+  right: 10px;
+}
 
     /* 🔥 меню */
     .menu-toggle {
@@ -235,17 +233,18 @@
 
   <!-- 🔥 ГАЛЕРЕЯ -->
   <div class="gallery">
-    <div class="g-slide active"><img src="images/photo1.jpg"></div>
-    <div class="g-slide"><img src="images/photo2.jpg"></div>
-    <div class="g-slide"><img src="images/photo3.jpg"></div>
-    <div class="g-slide"><img src="images/photo4.jpg"></div>
-    <div class="g-slide"><img src="images/photo5.jpg"></div>
-    <div class="g-slide"><img src="images/photo6.jpg"></div>
-    <div class="g-slide"><img src="images/photo7.jpg"></div>
-    <div class="g-slide"><img src="images/photo8.jpg"></div>
-    <div class="g-slide"><img src="images/photo9.jpg"></div>
-  </div>
 
+  <div class="g-slide active"><img src="images/photo1.jpg"></div>
+  <div class="g-slide"><img src="images/photo2.jpg"></div>
+  <div class="g-slide"><img src="images/photo3.jpg"></div>
+  <div class="g-slide"><img src="images/photo4.jpg"></div>
+  <div class="g-slide"><img src="images/photo5.jpg"></div>
+  <div class="g-slide"><img src="images/photo6.jpg"></div>
+  <div class="g-slide"><img src="images/photo7.jpg"></div>
+  <div class="g-slide"><img src="images/photo8.jpg"></div>
+  <div class="g-slide"><img src="images/photo9.jpg"></div>
+
+  <!-- 🔥 стрелки ВНУТРИ -->
   <div class="g-arrow g-left">&#8592;</div>
   <div class="g-arrow g-right">&#8594;</div>
 
