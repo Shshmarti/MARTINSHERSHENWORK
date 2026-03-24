@@ -99,18 +99,30 @@
       display: block;
     }
 
-    .g-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 20px;
-      color: white;
-      background: rgba(0,0,0,0.4);
-      padding: 10px 14px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 10;
-    }
+    }.g-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  color: white;
+  background: rgba(0,0,0,0.35);
+
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+
+  backdrop-filter: blur(6px);
+}
 
     .g-left { left: 10px; }
     .g-right { right: 10px; }
