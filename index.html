@@ -12,48 +12,23 @@
       font-family: Helvetica, Arial, sans-serif;
     }
 
+    h1 {
+      font-size: 20px;
+    }
+
     .container {
       max-width: 500px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 5px 20px;
     }
 
-    /* 🔥 ХЕДЕР */
-    h1 {
-      font-size: 20px;
-      margin: 0 0 20px 0;
-    }
-
-    /* 🔥 ГАЛЕРЕЯ */
-    .gallery {
-      position: relative;
+    img {
+      width: 100%;
       margin-bottom: 40px;
-    }
-
-    .g-slide {
-      display: none;
-    }
-
-    .g-slide.active {
       display: block;
     }
 
-    .g-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 20px;
-      color: white;
-      background: rgba(0,0,0,0.4);
-      padding: 8px 12px;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-    .g-left { left: 10px; }
-    .g-right { right: 10px; }
-
-    /* 🔥 ЖУРНАЛ */
+    /* 🔥 СЛАЙДЕР */
     .cover {
       position: relative;
       margin-bottom: 40px;
@@ -61,12 +36,14 @@
 
     .slide {
       display: none;
+      width: 100%;
     }
 
     .slide.active {
       display: block;
     }
 
+    /* стрелки */
     .arrow {
       position: absolute;
       top: 50%;
@@ -79,19 +56,33 @@
       cursor: pointer;
     }
 
-    .left { left: 10px; }
-    .right { right: 10px; }
+    .left {
+      left: 10px;
+    }
+
+    .right {
+      right: 10px;
+    }
 
     /* 💳 BUY */
     .buy-btn {
       position: absolute;
       bottom: 60px;
       left: 20px;
+
       padding: 12px 18px;
+      font-size: 14px;
+
       background: white;
       color: black;
       text-decoration: none;
+
       border-radius: 8px;
+    }
+
+    .buy-btn:hover {
+      background: black;
+      color: white;
     }
 
     /* 💬 TELEGRAM */
@@ -99,20 +90,24 @@
       position: absolute;
       bottom: 20px;
       left: 20px;
+
       padding: 10px 16px;
+      font-size: 12px;
+
       border: 1px solid white;
       color: white;
       text-decoration: none;
+
       border-radius: 8px;
       background: rgba(0,0,0,0.3);
     }
 
-    /* 🔥 БОНУС */
-    .bonus {
-      margin: 40px 0;
+    .alt-btn:hover {
+      background: white;
+      color: black;
     }
 
-    /* 🔥 БУРГЕР */
+    /* 🔥 бургер */
     .menu-toggle {
       position: fixed;
       top: 20px;
@@ -134,7 +129,7 @@
       background: black;
     }
 
-    /* 📱 МЕНЮ */
+    /* 📱 меню */
     .side-menu {
       position: fixed;
       top: 70px;
@@ -162,8 +157,10 @@
       margin-bottom: 12px;
       text-decoration: none;
       color: white;
+      font-size: 15px;
     }
 
+    /* ❌ крестик */
     .close-btn {
       position: absolute;
       top: 8px;
@@ -196,137 +193,94 @@
 
 <body>
 
-<!-- бургер -->
-<button class="menu-toggle">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+  <!-- бургер -->
+  <button class="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-<!-- меню -->
-<div class="side-menu">
-  <div class="close-btn"></div>
-  <a href="video.html">Video</a>
-  <a href="works.html">Works</a>
-  <a href="mailto:thebiggestnobody777@gmail.com">Contact</a>
+  <!-- меню -->
+  <div class="side-menu">
+    <div class="close-btn"></div>
+
+    <a href="video.html">Video</a>
+    <a href="works.html">Works</a>
+    <a href="mailto:thebiggestnobody777@gmail.com">Contact</a>
+  </div>
+
+  <div class="container">
+    <h1>MARTSIN SHERSHAN</h1>
+
+    <!-- 🔥 СЛАЙДЕР -->
+    <div class="cover">
+
+      <img src="images/photo10.jpg" class="slide active">
+      <img src="images/photo11.jpg" class="slide">
+      <img src="images/photo12.jpg" class="slide">
+      <img src="images/photo13.jpg" class="slide">
+
+      <div class="arrow left">&#8592;</div>
+      <div class="arrow right">&#8594;</div>
+
+      <a href="https://buy.stripe.com/14A6oH1JkeJ09EWgBv5Vu00" target="_blank" class="buy-btn">
+        BUY
+      </a>
+
+      <a href="https://t.me/shshmarti?text=%D0%9D%D0%B5%20%D0%BC%D0%BE%D0%B3%D1%83%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%B8%D1%82%D1%8C%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7%20Stripe.%20%D0%9A%D0%B0%D0%BA%D0%B8%D0%B5%20%D0%B5%D1%81%D1%82%D1%8C%20%D0%B0%D0%BB%D1%8C%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B5%20%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D1%82%D1%8B%3F" target="_blank" class="alt-btn">
+        OTHER PAYMENT
+      </a>
+    </div>
+<div class="bonus">
+  <img src="images/pic5.jpg">
 </div>
-
-<div class="container">
-
-  <!-- 🔥 ТВОЁ ИМЯ -->
-  <h1>MARTSIN SHERSHAN</h1>
-
-  <!-- 🔥 ГАЛЕРЕЯ -->
-  <div class="gallery">
-
-    <div class="g-slide active">
-      <img src="images/photo1.jpg">
-    </div>
-
-    <div class="g-slide">
-      <img src="images/photo2.jpg">
-    </div>
-
-    <div class="g-slide">
-      <img src="images/photo3.jpg">
-    </div>
-
-    <div class="g-slide">
-      <img src="images/photo4.jpg">
-    </div>
-
-    <div class="g-slide">
-      <img src="images/photo5.jpg">
-    </div>
-
-    <!-- гифки -->
-    <div class="g-slide">
-      <img src="images/gif1.gif">
-    </div>
-
-    <div class="g-slide">
-      <img src="images/gif2.gif">
-    </div>
-
-    <div class="g-arrow g-left">&#8592;</div>
-    <div class="g-arrow g-right">&#8594;</div>
+    <!-- остальные фото -->
+    <img src="images/photo1.jpg">
+    <img src="images/photo2.jpg">
+    <img src="images/photo3.jpg">
+    <img src="images/photo4.jpg">
+    <img src="images/photo5.jpg">
+    <img src="images/photo6.jpg">
+    <img src="images/photo7.jpg">
+    <img src="images/photo8.jpg">
+    <img src="images/photo9.jpg">
 
   </div>
 
-  <!-- 🔥 ЖУРНАЛ -->
-  <div class="cover">
+  <script>
+    const btn = document.querySelector('.menu-toggle');
+    const closeBtn = document.querySelector('.close-btn');
 
-    <img src="images/photo10.jpg" class="slide active">
-    <img src="images/photo11.jpg" class="slide">
-    <img src="images/photo12.jpg" class="slide">
-    <img src="images/photo13.jpg" class="slide">
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('menu-open');
+    });
 
-    <div class="arrow left">&#8592;</div>
-    <div class="arrow right">&#8594;</div>
+    closeBtn.addEventListener('click', () => {
+      document.body.classList.remove('menu-open');
+    });
 
-    <a href="https://buy.stripe.com/14A6oH1JkeJ09EWgBv5Vu00" target="_blank" class="buy-btn">
-      BUY
-    </a>
+    // 🔥 СЛАЙДЕР
+    const slides = document.querySelectorAll('.slide');
+    const next = document.querySelector('.right');
+    const prev = document.querySelector('.left');
 
-    <a href="https://t.me/shshmarti?text=%D0%9D%D0%B5%20%D0%BC%D0%BE%D0%B3%D1%83%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%B8%D1%82%D1%8C%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7%20Stripe.%20%D0%9A%D0%B0%D0%BA%D0%B8%D0%B5%20%D0%B5%D1%81%D1%82%D1%8C%20%D0%B0%D0%BB%D1%8C%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B5%20%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D0%B0%D1%82%D1%8B%3F" target="_blank" class="alt-btn">
-      OTHER PAYMENT
-    </a>
+    let current = 0;
 
-  </div>
+    function showSlide(index) {
+      slides.forEach(s => s.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
 
-  <!-- 🔥 БОНУС -->
-  <div class="bonus">
-    <img src="images/pic5.jpg">
-  </div>
+    next.addEventListener('click', () => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    });
 
-</div>
-
-<script>
-  // меню
-  const btn = document.querySelector('.menu-toggle');
-  const closeBtn = document.querySelector('.close-btn');
-
-  btn.onclick = () => document.body.classList.toggle('menu-open');
-  closeBtn.onclick = () => document.body.classList.remove('menu-open');
-
-  // журнал
-  const slides = document.querySelectorAll('.slide');
-  let current = 0;
-
-  document.querySelector('.right').onclick = () => {
-    current = (current + 1) % slides.length;
-    updateSlides();
-  };
-
-  document.querySelector('.left').onclick = () => {
-    current = (current - 1 + slides.length) % slides.length;
-    updateSlides();
-  };
-
-  function updateSlides() {
-    slides.forEach(s => s.classList.remove('active'));
-    slides[current].classList.add('active');
-  }
-
-  // галерея
-  const gSlides = document.querySelectorAll('.g-slide');
-  let gCurrent = 0;
-
-  document.querySelector('.g-right').onclick = () => {
-    gCurrent = (gCurrent + 1) % gSlides.length;
-    updateG();
-  };
-
-  document.querySelector('.g-left').onclick = () => {
-    gCurrent = (gCurrent - 1 + gSlides.length) % gSlides.length;
-    updateG();
-  };
-
-  function updateG() {
-    gSlides.forEach(s => s.classList.remove('active'));
-    gSlides[gCurrent].classList.add('active');
-  }
-</script>
+    prev.addEventListener('click', () => {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    });
+  </script>
 
 </body>
 </html>
