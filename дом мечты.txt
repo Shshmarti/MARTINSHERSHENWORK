@@ -142,6 +142,11 @@ body.menu-open .side-menu {
   <img src="images/house3.jpg">
   <img src="images/house4.jpg">
   <img src="images/house5.jpg">
+  <img src="images/house5.jpg">
+  <img src="images/house6.jpg">
+  <img src="images/house7.jpg">
+  <img src="images/house8.jpg">
+  <img src="images/house9.jpg">
 
 </div>
 
