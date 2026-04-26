@@ -2,199 +2,259 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>MS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MS</title>
 
 <style>
-body {
-  margin: 0;
-  background: #d30000;
-  font-family: Helvetica, Arial, sans-serif;
+body{
+  margin:0;
+  font-family:Helvetica, Arial, sans-serif;
+  background:#d30000;
+  color:black;
 }
 
-.container {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 5px 20px;
+/* стартовый экран */
+.start-screen{
+  position:fixed;
+  inset:0;
+  background:#d30000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:99999;
 }
 
-img {
-  width: 100%;
-  display: block;
+.start-box{
+  text-align:center;
+  padding:30px;
+  width:100%;
+  max-width:420px;
 }
 
-h1 {
-  font-size: 20px;
+.start-box h1{
+  font-size:26px;
+  margin-bottom:15px;
 }
 
-/* 🔥 ГАЛЕРЕЯ */
-.gallery {
-  position: relative;
-  margin-bottom: 40px;
+.start-box p{
+  font-size:14px;
+  margin-bottom:35px;
 }
 
-.g-slide {
-  display: none;
+.choice-btn{
+  display:block;
+  width:100%;
+  margin-bottom:15px;
+  padding:18px;
+  border:1px solid black;
+  background:transparent;
+  font-size:18px;
+  cursor:pointer;
 }
 
-.g-slide.active {
-  display: block;
+.choice-btn:hover{
+  background:black;
+  color:white;
 }
 
-.g-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: white;
-  background: rgba(0,0,0,0.35);
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10;
+/* контент */
+.site-content{
+  display:none;
 }
 
-.g-left { left: 10px; }
-.g-right { right: 10px; }
-
-/* 🔥 ЖУРНАЛ */
-.cover {
-  position: relative;
-  margin-bottom: 40px;
+.site-content.show{
+  display:block;
 }
 
-.slide {
-  display: none;
+.container{
+  max-width:500px;
+  margin:0 auto;
+  padding:5px 20px;
 }
 
-.slide.active {
-  display: block;
+img{
+  width:100%;
+  display:block;
 }
 
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: white;
-  background: rgba(0,0,0,0.4);
-  border-radius: 50%;
-  cursor: pointer;
+h1{
+  font-size:20px;
 }
 
-.left { left: 10px; }
-.right { right: 10px; }
-
-/* 🔥 БОНУС */
-.bonus {
-  margin: 40px 0;
+.divider{
+  width:100%;
+  height:1px;
+  background:black;
+  margin:15px 0 25px;
 }
 
-/* 🔥 БУРГЕР */
-.menu-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 28px;
-  height: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: none;
-  border: none;
-  z-index: 9999;
+/* меню */
+.menu-toggle{
+  position:fixed;
+  top:20px;
+  right:20px;
+  width:28px;
+  height:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  background:none;
+  border:none;
+  z-index:9999;
 }
 
-.menu-toggle span {
-  height: 2px;
-  background: black;
+.menu-toggle span{
+  height:2px;
+  background:black;
 }
 
-.side-menu {
-  position: fixed;
-  top: 70px;
-  right: 20px;
-  width: 160px;
-  padding: 18px;
-  background: rgba(0,0,0,0.2);
-  backdrop-filter: blur(12px);
-  border-radius: 14px;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-10px);
-  transition: 0.3s;
-  z-index: 9999; 
+.side-menu{
+  position:fixed;
+  top:70px;
+  right:20px;
+  width:160px;
+  padding:18px;
+  background:rgba(0,0,0,0.2);
+  backdrop-filter:blur(12px);
+  border-radius:14px;
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(-10px);
+  transition:0.3s;
+  z-index:9999;
 }
 
-body.menu-open .side-menu {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
+body.menu-open .side-menu{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0);
 }
 
-.side-menu a {
-  display: block;
-  margin-bottom: 12px;
-  color: white;
-  text-decoration: none;
+.side-menu a{
+  display:block;
+  margin-bottom:12px;
+  color:white;
+  text-decoration:none;
 }
 
-.close-btn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
+.close-btn{
+  position:absolute;
+  top:8px;
+  right:8px;
+  width:18px;
+  height:18px;
+  cursor:pointer;
 }
 
 .close-btn::before,
-.close-btn::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 16px;
-  height: 2px;
-  background: white;
+.close-btn::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:16px;
+  height:2px;
+  background:white;
 }
 
-.close-btn::before {
-  transform: translate(-50%, -50%) rotate(45deg);
+.close-btn::before{
+  transform:translate(-50%,-50%) rotate(45deg);
 }
 
-.close-btn::after {
-  transform: translate(-50%, -50%) rotate(-45deg);
+.close-btn::after{
+  transform:translate(-50%,-50%) rotate(-45deg);
 }
-  .divider {
-  width: 100%;
-  height: 1px;
-  background: black;
-  margin: 15px 0 25px 0;
+
+/* галерея */
+.gallery{
+  position:relative;
+  margin-bottom:40px;
 }
-  .footer {
-  margin-top: 80px;
-  padding: 40px 20px;
 
-  text-align: center;
-  font-size: 12px;
+.g-slide{
+  display:none;
+}
 
-  color: rgba(0,0,0,0.6);
+.g-slide.active{
+  display:block;
+}
 
-  border-top: 1px solid rgba(0,0,0,0.2);
+.g-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:32px;
+  height:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  color:white;
+  background:rgba(0,0,0,0.35);
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.g-left{left:10px;}
+.g-right{right:10px;}
+
+/* журнал */
+.cover{
+  position:relative;
+  margin-bottom:40px;
+}
+
+.slide{
+  display:none;
+}
+
+.slide.active{
+  display:block;
+}
+
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:32px;
+  height:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  color:white;
+  background:rgba(0,0,0,0.4);
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.left{left:10px;}
+.right{right:10px;}
+
+.footer{
+  margin-top:80px;
+  padding:40px 20px;
+  text-align:center;
+  font-size:12px;
+  color:rgba(0,0,0,0.6);
 }
 </style>
 </head>
 <body>
+
+<!-- СТАРТОВЫЙ ЭКРАН -->
+<div class="start-screen" id="startScreen">
+  <div class="start-box">
+    <h1>MARTSIN SHERSHAN</h1>
+    <p>SERVISEX</p>
+
+    <button class="choice-btn" onclick="goShop()">SHOP</button>
+    <button class="choice-btn" onclick="enterWorks()">ART WORKS</button>
+  </div>
+</div>
+
+<!-- ОСНОВНОЙ САЙТ -->
+<div class="site-content" id="siteContent">
 
 <button class="menu-toggle">
   <span></span>
@@ -204,74 +264,62 @@ body.menu-open .side-menu {
 
 <div class="side-menu">
   <div class="close-btn"></div>
+  <a href="shop.html">Shop</a>
   <a href="video.html">Video</a>
   <a href="works.html">Works</a>
-  <a href="house.html">house</a>
+  <a href="house.html">House</a>
   <a href="mailto:thebiggestnobody777@gmail.com">Contact</a>
 </div>
 
 <div class="container">
-<h1>MARTSIN SHERSHAN/SERVISEX</h1>
+
+<h1>MARTSIN SHERSHAN / SERVISEX</h1>
 <div class="divider"></div>
 
-<!-- 🔥 ГАЛЕРЕЯ -->
+<!-- ГАЛЕРЕЯ -->
 <div class="gallery">
-  
- <div class="g-slide active "><img src="images/photo2.jpg"></div>
-  <div class="g-slide"><img src="images/photo1.jpg"></div>
-   <div class="g-slide"><img src="images/gif0.gif"></div>
-  <div class="g-slide"><img src="images/gif2.gif"></div>
-  <div class="g-slide"><img src="images/gif3.gif"></div>
-  <div class="g-slide"><img src="images/gif4.gif"></div>
-  <div class="g-slide"><img src="images/img1.jpg"></div>
-  <div class="g-slide"><img src="images/img2.jpg"></div>
-  <div class="g-slide"><img src="images/img3.jpg"></div>
-  <div class="g-slide"><img src="images/img4.jpg"></div>
-  <div class="g-slide"><img src="images/img5.jpg"></div>
-  <div class="g-slide"><img src="images/img6.jpg"></div>
-  <div class="g-slide"><img src="images/img7.jpg"></div>
-  <div class="g-slide"><img src="images/img8.jpg"></div>
-  <div class="g-slide"><img src="images/img9.jpg"></div>
 
-  <div class="g-arrow g-left">‹</div>
-  <div class="g-arrow g-right">›</div>
+<div class="g-slide active"><img src="images/photo2.jpg"></div>
+<div class="g-slide"><img src="images/photo1.jpg"></div>
+<div class="g-slide"><img src="images/gif0.gif"></div>
+<div class="g-slide"><img src="images/gif2.gif"></div>
+<div class="g-slide"><img src="images/gif3.gif"></div>
+
+<div class="g-arrow g-left">‹</div>
+<div class="g-arrow g-right">›</div>
 
 </div>
-<div class="gifs">
 
-  <img src="images/gif1.gif">
-  
-
-</div>
-<!-- 🔥 ЖУРНАЛ -->
+<!-- ЖУРНАЛ -->
 <div class="cover">
 
-  <img src="images/photo10.jpg" class="slide active">
-  <img src="images/photo11.jpg" class="slide">
-  <img src="images/photo12.jpg" class="slide">
-  <img src="images/photo13.jpg" class="slide">
+<img src="images/photo10.jpg" class="slide active">
+<img src="images/photo11.jpg" class="slide">
+<img src="images/photo12.jpg" class="slide">
 
-  <div class="arrow left">‹</div>
-  <div class="arrow right">›</div>
+<div class="arrow left">‹</div>
+<div class="arrow right">›</div>
 
 </div>
 
-<!-- 🔥 БОНУС -->
-<div class="bonus">
-  <img src="images/*5.jpg">
+<div class="footer">
+© MARTSIN SHERSHAN
 </div>
-<div class="extra-photos">
-
-  <img src="images/6*.jpg">
-  <img src="images/7*.jpg">
-  <img src="images/8*.jpg">
-  <img src="images/9*.jpg">
-  <img src="images/10*.jpg">
 
 </div>
 </div>
 
 <script>
+/* старт */
+function goShop(){
+  window.location.href = "shop.html";
+}
+
+function enterWorks(){
+  document.getElementById("startScreen").style.display = "none";
+  document.getElementById("siteContent").classList.add("show");
+}
+
 /* меню */
 const btn = document.querySelector('.menu-toggle');
 const closeBtn = document.querySelector('.close-btn');
@@ -281,69 +329,41 @@ closeBtn.onclick = () => document.body.classList.remove('menu-open');
 
 /* журнал */
 const slides = document.querySelectorAll('.slide');
-const journalNext = document.querySelector('.cover .right');
-const journalPrev = document.querySelector('.cover .left');
-
 let current = 0;
 
-function updateSlides() {
+function updateSlides(){
   slides.forEach(s => s.classList.remove('active'));
   slides[current].classList.add('active');
 }
 
-journalNext.onclick = () => {
+document.querySelector('.right').onclick = () => {
   current = (current + 1) % slides.length;
   updateSlides();
 };
 
-journalPrev.onclick = () => {
+document.querySelector('.left').onclick = () => {
   current = (current - 1 + slides.length) % slides.length;
   updateSlides();
 };
 
 /* галерея */
 const gSlides = document.querySelectorAll('.g-slide');
-const gNext = document.querySelector('.g-right');
-const gPrev = document.querySelector('.g-left');
-
 let gCurrent = 0;
 
-function updateGallery() {
+function updateGallery(){
   gSlides.forEach(s => s.classList.remove('active'));
   gSlides[gCurrent].classList.add('active');
 }
 
-gNext.onclick = () => {
+document.querySelector('.g-right').onclick = () => {
   gCurrent = (gCurrent + 1) % gSlides.length;
   updateGallery();
 };
 
-gPrev.onclick = () => {
+document.querySelector('.g-left').onclick = () => {
   gCurrent = (gCurrent - 1 + gSlides.length) % gSlides.length;
   updateGallery();
 };
-
-/* свайп */
-let startX = 0;
-const gallery = document.querySelector('.gallery');
-
-gallery.addEventListener('touchstart', e => {
-  startX = e.touches[0].clientX;
-});
-
-gallery.addEventListener('touchend', e => {
-  let endX = e.changedTouches[0].clientX;
-
-  if (startX - endX > 50) {
-    gCurrent = (gCurrent + 1) % gSlides.length;
-    updateGallery();
-  }
-
-  if (endX - startX > 50) {
-    gCurrent = (gCurrent - 1 + gSlides.length) % gSlides.length;
-    updateGallery();
-  }
-});
 </script>
 
 </body>
