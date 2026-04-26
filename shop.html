@@ -13,6 +13,33 @@ body{
   font-family:Helvetica, Arial, sans-serif;
 }
 
+/* УБИРАЕТ СИНИЙ TAP НА IOS */
+*{
+  -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button{
+  color:black;
+  -webkit-appearance:none;
+  appearance:none;
+  border-radius:0;
+}
+
+a:visited,
+a:active,
+a:focus{
+  color:black;
+  text-decoration:none;
+}
+
+button:focus,
+button:active,
+button:visited{
+  outline:none;
+}
+
+/* КОНТЕЙНЕР */
 .container{
   max-width:560px;
   margin:0 auto;
@@ -66,6 +93,7 @@ h1{
   opacity:0.8;
 }
 
+/* КНОПКИ ЦВЕТА */
 .color-buttons{
   display:flex;
   gap:10px;
@@ -76,6 +104,7 @@ h1{
   padding:10px 16px;
   border:1px solid black;
   background:transparent;
+  color:black;
   font-size:13px;
   cursor:pointer;
 }
@@ -85,6 +114,7 @@ h1{
   color:white;
 }
 
+/* BUY */
 .buy-row{
   display:flex;
   gap:10px;
@@ -96,6 +126,7 @@ h1{
   display:inline-block;
   padding:14px 18px;
   border:1px solid black;
+  background:transparent;
   color:black;
   text-decoration:none;
   font-size:14px;
@@ -107,6 +138,14 @@ h1{
   color:white;
 }
 
+.buy-btn:focus,
+.buy-btn:active,
+.rus-btn:focus,
+.rus-btn:active{
+  color:black;
+}
+
+/* FOOTER */
 .footer{
   padding:40px 0 20px;
   font-size:12px;
@@ -121,7 +160,7 @@ h1{
 <h1>SHOP SERVISEX</h1>
 <a href="index.html" class="top-link">← BACK</a>
 
-<!-- PRODUCT 1 -->
+<!-- PRODUCT -->
 <div class="product">
 
 <img src="images/item1-black.jpg" class="product-image">
@@ -133,77 +172,33 @@ h1{
 <div class="color">Color: <span class="current-color">Black</span></div>
 
 <div class="color-buttons">
+
 <button class="color-btn active"
-onclick="changeColor(this,'images/item1-black.jpg','https://buy.stripe.com/cNieVdfAabwO5oGclf5Vu03','Black')">Black</button>
+onclick="changeColor(this,'images/item1-black.jpg','https://buy.stripe.com/cNieVdfAabwO5oGclf5Vu03','Black')">
+Black
+</button>
 
 <button class="color-btn"
-onclick="changeColor(this,'images/item1-white.jpg','https://buy.stripe.com/8x200jds2gR804mgBv5Vu02','White')">White</button>
+onclick="changeColor(this,'images/item1-white.jpg','https://buy.stripe.com/8x200jds2gR804mgBv5Vu02','White')">
+White
+</button>
+
 </div>
 
 <div class="buy-row">
+
 <a href="https://buy.stripe.com/cNieVdfAabwO5oGclf5Vu03"
 class="buy-btn"
-target="_blank">BUY NOW</a>
+target="_blank">
+BUY NOW
+</a>
 
 <a href="https://t.me/shshmarti?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82,%20%D1%8F%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%20SERVISEX%20%D1%85%D0%BE%D1%87%D1%83%20%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7"
 class="rus-btn"
-target="_blank">ОПЛАТА ДЛЯ РОССИИ</a>
-</div>
+target="_blank">
+ОПЛАТА ДЛЯ РОССИИ
+</a>
 
-</div>
-
-<!-- PRODUCT 2 -->
-<div class="product">
-
-<img src="images/item2-black.jpg" class="product-image">
-
-<div class="name">SERVISEX LONGSLEEVE</div>
-<div class="desc">Long sleeve shirt with logo graphic.</div>
-<div class="price">70$</div>
-
-<div class="color">Color: <span class="current-color">Black</span></div>
-
-<div class="color-buttons">
-<button class="color-btn active"
-onclick="changeColor(this,'images/item2-black.jpg','BLACK-LINK-2','Black')">Black</button>
-
-<button class="color-btn"
-onclick="changeColor(this,'images/item2-white.jpg','WHITE-LINK-2','White')">White</button>
-</div>
-
-<div class="buy-row">
-<a href="BLACK-LINK-2" class="buy-btn" target="_blank">BUY NOW</a>
-
-<a href="https://t.me/shshmarti?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82,%20%D1%8F%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%20SERVISEX%20%D1%85%D0%BE%D1%87%D1%83%20%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7"
-class="rus-btn" target="_blank">ОПЛАТА ДЛЯ РОССИИ</a>
-</div>
-
-</div>
-
-<!-- PRODUCT 3 -->
-<div class="product">
-
-<img src="images/item3-black.jpg" class="product-image">
-
-<div class="name">MARTSIN HOODIE</div>
-<div class="desc">Oversized hoodie with artwork print.</div>
-<div class="price">110$</div>
-
-<div class="color">Color: <span class="current-color">Black</span></div>
-
-<div class="color-buttons">
-<button class="color-btn active"
-onclick="changeColor(this,'images/item3-black.jpg','BLACK-LINK-3','Black')">Black</button>
-
-<button class="color-btn"
-onclick="changeColor(this,'images/item3-white.jpg','WHITE-LINK-3','White')">White</button>
-</div>
-
-<div class="buy-row">
-<a href="BLACK-LINK-3" class="buy-btn" target="_blank">BUY NOW</a>
-
-<a href="https://t.me/shshmarti?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82,%20%D1%8F%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%20SERVISEX%20%D1%85%D0%BE%D1%87%D1%83%20%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7"
-class="rus-btn" target="_blank">ОПЛАТА ДЛЯ РОССИИ</a>
 </div>
 
 </div>
