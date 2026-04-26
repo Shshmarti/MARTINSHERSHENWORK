@@ -38,7 +38,7 @@ h1{
   border-bottom:1px solid rgba(0,0,0,0.35);
 }
 
-/* ГАЛЕРЕЯ ТОВАРА */
+/* ГАЛЕРЕЯ */
 .gallery{
   position:relative;
   margin-bottom:15px;
@@ -127,15 +127,17 @@ h1{
 <h1>SHOP SERVISEX</h1>
 <a href="index.html" class="top-link">← BACK</a>
 
-<!-- ITEM 1 -->
+<!-- ITEM -->
 <div class="product">
 
 <div class="gallery">
 
+<!-- BLACK -->
 <div class="slide active">
   <img src="images/item1-black.jpg">
 </div>
 
+<!-- WHITE -->
 <div class="slide">
   <img src="images/item1-white.jpg">
 </div>
@@ -148,11 +150,13 @@ h1{
 <div class="name">лонгслив порно студия у шамиля</div>
 <div class="desc">100 хлопок / золотая классика.</div>
 <div class="price">70$</div>
+
 <div class="color" id="colorText">Color: Black</div>
 
-<a href="https://buy.stripe.com/dRm5kD73EcAS5oG3OJ5Vu01"
-class="buy-btn"
-target="_blank">
+<a href="https://BLACK-LINK-HERE"
+   id="buyBtn"
+   class="buy-btn"
+   target="_blank">
 BUY NOW
 </a>
 
@@ -169,14 +173,30 @@ const slides = document.querySelectorAll('.slide');
 const left = document.querySelector('.left');
 const right = document.querySelector('.right');
 const colorText = document.getElementById('colorText');
+const buyBtn = document.getElementById('buyBtn');
 
 let current = 0;
-const colors = ['Black', 'White'];
+
+/* ссылки на оплату */
+const buyLinks = [
+  "https://BLACK-LINK-HERE",
+  "https://WHITE-LINK-HERE"
+];
+
+/* названия цветов */
+const colors = [
+  "Black",
+  "White"
+];
 
 function updateSlides(){
   slides.forEach(slide => slide.classList.remove('active'));
   slides[current].classList.add('active');
-  colorText.innerText = 'Color: ' + colors[current];
+
+  colorText.innerText = "Color: " + colors[current];
+
+  /* меняем ссылку */
+  buyBtn.href = buyLinks[current];
 }
 
 right.onclick = () => {
