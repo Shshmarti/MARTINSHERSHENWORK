@@ -3,374 +3,298 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MS</title>
+<title>SHOP SERVISEX</title>
 
 <style>
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
   background:#d30000;
-  font-family:Helvetica, Arial, sans-serif;
   color:black;
+  font-family:Helvetica, Arial, sans-serif;
 }
 
-/* фикс синего текста */
+/* УБИРАЕТ СИНИЙ ЦВЕТ У КНОПОК И ССЫЛОК */
 a,
 a:visited,
+a:active,
 a:hover,
-a:active{
+button{
   color:black;
-  text-decoration:none;
 }
 
 button{
-  color:black;
   font-family:Helvetica, Arial, sans-serif;
 }
 
-/* стартовый экран */
-.start-screen{
-  position:fixed;
-  inset:0;
-  background:#d30000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:99999;
-}
-
-.start-box{
-  text-align:center;
-  padding:30px;
+.container{
   width:100%;
-  max-width:420px;
+  max-width:560px;
+  margin:0 auto;
+  padding:20px;
 }
 
-.start-box h1{
+h1{
   font-size:26px;
-  margin-bottom:20px;
+  margin:0 0 10px;
 }
 
-.choice-btn{
-  display:block;
+.top-link{
+  display:inline-block;
+  margin-bottom:30px;
+  color:black;
+  text-decoration:none;
+  border-bottom:1px solid black;
+}
+
+.product{
   width:100%;
+  overflow:hidden;
+  margin-bottom:55px;
+  padding-bottom:35px;
+  border-bottom:1px solid rgba(0,0,0,0.35);
+}
+
+.product img{
+  width:100%;
+  max-width:100%;
+  display:block;
   margin-bottom:15px;
-  padding:18px;
+}
+
+.name{
+  font-size:22px;
+  line-height:1.2;
+  margin-bottom:8px;
+  word-break:break-word;
+}
+
+.desc{
+  font-size:14px;
+  line-height:1.4;
+  margin-bottom:10px;
+  word-break:break-word;
+}
+
+.price{
+  font-size:16px;
+  margin-bottom:12px;
+}
+
+.color{
+  font-size:13px;
+  margin-bottom:10px;
+  opacity:0.8;
+}
+
+.color-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:18px;
+}
+
+.color-btn{
+  padding:10px 16px;
   border:1px solid black;
   background:transparent;
   color:black;
-  font-size:18px;
+  font-size:13px;
   cursor:pointer;
 }
 
-.choice-btn:hover{
+.color-btn.active{
   background:black;
   color:white;
 }
 
-/* основной сайт */
-.site-content{
-  display:none;
-}
-
-.site-content.show{
-  display:block;
-}
-
-.container{
-  max-width:500px;
-  margin:0 auto;
-  padding:5px 20px;
-}
-
-img{
-  width:100%;
-  display:block;
-}
-
-h1.main-title{
-  font-size:20px;
-}
-
-.divider{
-  width:100%;
-  height:1px;
-  background:black;
-  margin:15px 0 25px;
-}
-
-/* меню */
-.menu-toggle{
-  position:fixed;
-  top:20px;
-  right:20px;
-  width:28px;
-  height:20px;
+.buy-row{
   display:flex;
   flex-direction:column;
-  justify-content:space-between;
-  background:none;
-  border:none;
-  z-index:9999;
+  gap:10px;
 }
 
-.menu-toggle span{
-  height:2px;
+.buy-btn,
+.rus-btn{
+  display:block;
+  width:100%;
+  text-align:center;
+  padding:14px 18px;
+  border:1px solid black;
+  color:black;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.buy-btn:hover,
+.rus-btn:hover{
   background:black;
-}
-
-.side-menu{
-  position:fixed;
-  top:70px;
-  right:20px;
-  width:160px;
-  padding:18px;
-  background:rgba(0,0,0,0.2);
-  backdrop-filter:blur(12px);
-  border-radius:14px;
-  opacity:0;
-  pointer-events:none;
-  transform:translateY(-10px);
-  transition:0.3s;
-  z-index:9999;
-}
-
-body.menu-open .side-menu{
-  opacity:1;
-  pointer-events:auto;
-  transform:translateY(0);
-}
-
-.side-menu a{
-  display:block;
-  margin-bottom:12px;
   color:white;
 }
-
-.close-btn{
-  position:absolute;
-  top:8px;
-  right:8px;
-  width:18px;
-  height:18px;
-  cursor:pointer;
-}
-
-.close-btn::before,
-.close-btn::after{
-  content:"";
-  position:absolute;
-  top:50%;
-  left:50%;
-  width:16px;
-  height:2px;
-  background:white;
-}
-
-.close-btn::before{
-  transform:translate(-50%,-50%) rotate(45deg);
-}
-
-.close-btn::after{
-  transform:translate(-50%,-50%) rotate(-45deg);
-}
-
-/* галерея */
-.gallery{
-  position:relative;
-  margin-bottom:40px;
-}
-
-.g-slide{
-  display:none;
-}
-
-.g-slide.active{
-  display:block;
-}
-
-.g-arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:32px;
-  height:32px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-  color:white;
-  background:rgba(0,0,0,0.35);
-  border-radius:50%;
-  cursor:pointer;
-}
-
-.g-left{left:10px;}
-.g-right{right:10px;}
-
-/* журнал */
-.cover{
-  position:relative;
-  margin-bottom:40px;
-}
-
-.slide{
-  display:none;
-}
-
-.slide.active{
-  display:block;
-}
-
-.arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:32px;
-  height:32px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-  color:white;
-  background:rgba(0,0,0,0.4);
-  border-radius:50%;
-  cursor:pointer;
-}
-
-.left{left:10px;}
-.right{right:10px;}
 
 .footer{
-  margin-top:80px;
-  padding:40px 20px;
-  text-align:center;
+  padding:40px 0 20px;
   font-size:12px;
-  color:rgba(0,0,0,0.6);
+  opacity:0.6;
 }
 </style>
 </head>
 <body>
 
-<!-- СТАРТОВЫЙ ЭКРАН -->
-<div class="start-screen" id="startScreen">
-  <div class="start-box">
-    <h1>MARTSIN SHERSHAN</h1>
-
-    <button class="choice-btn" onclick="goShop()">SHOP SERVISEX</button>
-    <button class="choice-btn" onclick="enterWorks()">ARTWORKS</button>
-  </div>
-</div>
-
-<!-- ОСНОВНОЙ САЙТ -->
-<div class="site-content" id="siteContent">
-
-<button class="menu-toggle">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
-
-<div class="side-menu">
-  <div class="close-btn"></div>
-  <a href="shop.html">Shop</a>
-  <a href="video.html">Video</a>
-  <a href="works.html">Works</a>
-  <a href="house.html">House</a>
-  <a href="mailto:thebiggestnobody777@gmail.com">Contact</a>
-</div>
-
 <div class="container">
 
-<h1 class="main-title">MARTSIN SHERSHAN</h1>
-<div class="divider"></div>
+<h1>SHOP SERVISEX</h1>
+<a href="index.html" class="top-link">← BACK</a>
 
-<!-- ГАЛЕРЕЯ -->
-<div class="gallery">
+<!-- PRODUCT 1 -->
+<div class="product">
 
-<div class="g-slide active"><img src="images/photo2.jpg"></div>
-<div class="g-slide"><img src="images/photo1.jpg"></div>
-<div class="g-slide"><img src="images/gif0.gif"></div>
-<div class="g-slide"><img src="images/gif2.gif"></div>
-<div class="g-slide"><img src="images/gif3.gif"></div>
+<img src="images/item1-black.jpg" class="product-image">
 
-<div class="g-arrow g-left">‹</div>
-<div class="g-arrow g-right">›</div>
+<div class="name">лонгслив порно студия у шамиля</div>
+<div class="desc">100 хлопок / золотая классика.</div>
+<div class="price">70$</div>
+
+<div class="color">Color: <span class="current-color">Black</span></div>
+
+<div class="color-buttons">
+<button class="color-btn active"
+onclick="changeColor(this,'images/item1-black.jpg','https://buy.stripe.com/cNieVdfAabwO5oGclf5Vu03','Black')">Black</button>
+
+<button class="color-btn"
+onclick="changeColor(this,'images/item1-white.jpg','https://buy.stripe.com/8x200jds2gR804mgBv5Vu02','White')">White</button>
+</div>
+
+<div class="buy-row">
+<a href="https://buy.stripe.com/cNieVdfAabwO5oGclf5Vu03" class="buy-btn" target="_blank">BUY NOW</a>
+<a href="https://t.me/shshmarti?text=Привет, я с сайта SERVISEX хочу сделать заказ" class="rus-btn" target="_blank">ОПЛАТА ДЛЯ РОССИИ</a>
+</div>
 
 </div>
 
-<!-- ЖУРНАЛ -->
-<div class="cover">
+<!-- PRODUCT 2 -->
+<div class="product">
 
-<img src="images/photo10.jpg" class="slide active">
-<img src="images/photo11.jpg" class="slide">
-<img src="images/photo12.jpg" class="slide">
+<img src="images/item2-black.jpg" class="product-image">
 
-<div class="arrow left">‹</div>
-<div class="arrow right">›</div>
+<div class="name">SERVISEX LONGSLEEVE</div>
+<div class="desc">Long sleeve shirt with logo graphic.</div>
+<div class="price">70$</div>
+
+<div class="color">Color: <span class="current-color">Black</span></div>
+
+<div class="color-buttons">
+<button class="color-btn active"
+onclick="changeColor(this,'images/item2-black.jpg','BLACK-LINK-2','Black')">Black</button>
+
+<button class="color-btn"
+onclick="changeColor(this,'images/item2-white.jpg','WHITE-LINK-2','White')">White</button>
+</div>
+
+<div class="buy-row">
+<a href="BLACK-LINK-2" class="buy-btn" target="_blank">BUY NOW</a>
+<a href="https://t.me/shshmarti?text=Привет, я с сайта SERVISEX хочу сделать заказ" class="rus-btn" target="_blank">ОПЛАТА ДЛЯ РОССИИ</a>
+</div>
+
+</div>
+
+<!-- PRODUCT 3 -->
+<div class="product">
+
+<img src="images/item3-white.jpg" class="product-image">
+
+<div class="name">пусть лучше в мышцах будет боль</div>
+<div class="desc">базовый фит 100% хлопок.</div>
+<div class="price">45$</div>
+
+<div class="color">Color: <span class="current-color">White</span></div>
+
+<div class="color-buttons">
+<button class="color-btn active"
+onclick="changeColor(this,'images/item3-white.jpg','https://buy.stripe.com/5kQ00jcnYcAS18qgBv5Vu06','White')">White</button>
+</div>
+
+<div class="buy-row">
+<a href="https://buy.stripe.com/5kQ00jcnYcAS18qgBv5Vu06" class="buy-btn" target="_blank">BUY NOW</a>
+<a href="https://t.me/shshmarti?text=Привет, я с сайта SERVISEX хочу сделать заказ" class="rus-btn" target="_blank">ОПЛАТА ДЛЯ РОССИИ</a>
+</div>
+
+</div>
+
+<!-- PRODUCT 4 -->
+<div class="product">
+
+<img src="images/item4-white.jpg" class="product-image">
+
+<div class="name">comme des halal</div>
+<div class="desc">как гарсонс, только халяль</div>
+<div class="price">40$</div>
+
+<div class="color">Color: <span class="current-color">White</span></div>
+
+<div class="color-buttons">
+<button class="color-btn active"
+onclick="changeColor(this,'images/item4-white.jpg','https://buy.stripe.com/aFabJ10FgbwO4kC84Z5Vu07','White')">White</button>
+</div>
+
+<div class="buy-row">
+<a href="https://buy.stripe.com/aFabJ10FgbwO4kC84Z5Vu07" class="buy-btn" target="_blank">BUY NOW</a>
+<a href="https://t.me/shshmarti?text=Привет, я с сайта SERVISEX хочу сделать заказ" class="rus-btn" target="_blank">ОПЛАТА ДЛЯ РОССИИ</a>
+</div>
+
+</div>
+
+<!-- PRODUCT 5 -->
+<div class="product">
+
+<img src="images/item5-black.jpg" class="product-image">
+
+<div class="name">PRODUCT NAME 5</div>
+<div class="desc">DESCRIPTION 5</div>
+<div class="price">000$</div>
+
+<div class="color">Color: <span class="current-color">Black</span></div>
+
+<div class="color-buttons">
+<button class="color-btn active"
+onclick="changeColor(this,'images/item5-black.jpg','BLACK-LINK-5','Black')">Black</button>
+
+<button class="color-btn"
+onclick="changeColor(this,'images/item5-white.jpg','WHITE-LINK-5','White')">White</button>
+</div>
+
+<div class="buy-row">
+<a href="BLACK-LINK-5" class="buy-btn" target="_blank">BUY NOW</a>
+<a href="https://t.me/shshmarti?text=Привет, я с сайта SERVISEX хочу сделать заказ" class="rus-btn" target="_blank">ОПЛАТА ДЛЯ РОССИИ</a>
+</div>
 
 </div>
 
 <div class="footer">
-© MARTSIN SHERSHAN
+© MARTSIN SHERSHAN / SERVISEX
 </div>
 
-</div>
 </div>
 
 <script>
-function goShop(){
-  window.location.href = "shop.html";
+function changeColor(button,imageSrc,stripeLink,colorName){
+
+const product = button.closest('.product');
+const image = product.querySelector('.product-image');
+const buyBtn = product.querySelector('.buy-btn');
+const colorText = product.querySelector('.current-color');
+const buttons = product.querySelectorAll('.color-btn');
+
+buttons.forEach(btn => btn.classList.remove('active'));
+button.classList.add('active');
+
+image.src = imageSrc;
+buyBtn.href = stripeLink;
+colorText.innerText = colorName;
 }
-
-function enterWorks(){
-  document.getElementById("startScreen").style.display = "none";
-  document.getElementById("siteContent").classList.add("show");
-}
-
-/* меню */
-const btn = document.querySelector('.menu-toggle');
-const closeBtn = document.querySelector('.close-btn');
-
-btn.onclick = () => document.body.classList.toggle('menu-open');
-closeBtn.onclick = () => document.body.classList.remove('menu-open');
-
-/* журнал */
-const slides = document.querySelectorAll('.slide');
-let current = 0;
-
-function updateSlides(){
-  slides.forEach(s => s.classList.remove('active'));
-  slides[current].classList.add('active');
-}
-
-document.querySelector('.right').onclick = () => {
-  current = (current + 1) % slides.length;
-  updateSlides();
-};
-
-document.querySelector('.left').onclick = () => {
-  current = (current - 1 + slides.length) % slides.length;
-  updateSlides();
-};
-
-/* галерея */
-const gSlides = document.querySelectorAll('.g-slide');
-let gCurrent = 0;
-
-function updateGallery(){
-  gSlides.forEach(s => s.classList.remove('active'));
-  gSlides[gCurrent].classList.add('active');
-}
-
-document.querySelector('.g-right').onclick = () => {
-  gCurrent = (gCurrent + 1) % gSlides.length;
-  updateGallery();
-};
-
-document.querySelector('.g-left').onclick = () => {
-  gCurrent = (gCurrent - 1 + gSlides.length) % gSlides.length;
-  updateGallery();
-};
 </script>
 
 </body>
