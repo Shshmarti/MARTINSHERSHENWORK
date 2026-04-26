@@ -38,7 +38,6 @@ h1{
   border-bottom:1px solid rgba(0,0,0,0.35);
 }
 
-/* ГАЛЕРЕЯ */
 .gallery{
   position:relative;
   margin-bottom:15px;
@@ -46,7 +45,6 @@ h1{
 
 .slide{
   display:none;
-  width:100%;
 }
 
 .slide.active{
@@ -74,8 +72,8 @@ h1{
   cursor:pointer;
 }
 
-.left{ left:10px; }
-.right{ right:10px; }
+.left{left:10px;}
+.right{right:10px;}
 
 .name{
   font-size:22px;
@@ -127,39 +125,104 @@ h1{
 <h1>SHOP SERVISEX</h1>
 <a href="index.html" class="top-link">← BACK</a>
 
-<!-- ITEM -->
+<!-- PRODUCT 1 -->
 <div class="product">
+<div class="gallery" data-product="0">
 
-<div class="gallery">
-
-<!-- BLACK -->
-<div class="slide active">
-  <img src="images/item1-black.jpg">
-</div>
-
-<!-- WHITE -->
-<div class="slide">
-  <img src="images/item1-white.jpg">
-</div>
+<div class="slide active"><img src="images/item1-black.jpg"></div>
+<div class="slide"><img src="images/item1-white.jpg"></div>
 
 <div class="arrow left">‹</div>
 <div class="arrow right">›</div>
-
 </div>
 
 <div class="name">лонгслив порно студия у шамиля</div>
 <div class="desc">100 хлопок / золотая классика.</div>
 <div class="price">70$</div>
+<div class="color">Color: Black</div>
 
-<div class="color" id="colorText">Color: Black</div>
+<a href="https://buy.stripe.com/cNieVdfAabwO5oGclf5Vu03"
+class="buy-btn" target="_blank">BUY NOW</a>
+</div>
 
-<a href="https://BLACK-LINK-HERE"
-   id="buyBtn"
-   class="buy-btn"
-   target="_blank">
-BUY NOW
-</a>
+<!-- PRODUCT 2 -->
+<div class="product">
+<div class="gallery" data-product="1">
 
+<div class="slide active"><img src="images/item2-black.jpg"></div>
+<div class="slide"><img src="images/item2-white.jpg"></div>
+
+<div class="arrow left">‹</div>
+<div class="arrow right">›</div>
+</div>
+
+<div class="name">SERVISEX LONGSLEEVE</div>
+<div class="desc">Long sleeve shirt with logo graphic.</div>
+<div class="price">70$</div>
+<div class="color">Color: Black</div>
+
+<a href="BLACK-LINK-2"
+class="buy-btn" target="_blank">BUY NOW</a>
+</div>
+
+<!-- PRODUCT 3 -->
+<div class="product">
+<div class="gallery" data-product="2">
+
+<div class="slide active"><img src="images/item3-black.jpg"></div>
+<div class="slide"><img src="images/item3-white.jpg"></div>
+
+<div class="arrow left">‹</div>
+<div class="arrow right">›</div>
+</div>
+
+<div class="name">MARTSIN HOODIE</div>
+<div class="desc">Oversized hoodie with artwork print.</div>
+<div class="price">110$</div>
+<div class="color">Color: Black</div>
+
+<a href="BLACK-LINK-3"
+class="buy-btn" target="_blank">BUY NOW</a>
+</div>
+
+<!-- PRODUCT 4 -->
+<div class="product">
+<div class="gallery" data-product="3">
+
+<div class="slide active"><img src="images/item4-black.jpg"></div>
+<div class="slide"><img src="images/item4-white.jpg"></div>
+
+<div class="arrow left">‹</div>
+<div class="arrow right">›</div>
+</div>
+
+<div class="name">SERVISEX ZIP HOODIE</div>
+<div class="desc">Zip hoodie with distressed details.</div>
+<div class="price">125$</div>
+<div class="color">Color: Black</div>
+
+<a href="BLACK-LINK-4"
+class="buy-btn" target="_blank">BUY NOW</a>
+</div>
+
+<!-- PRODUCT 5 -->
+<div class="product">
+<div class="gallery" data-product="4">
+
+<div class="slide active"><img src="images/item5-black.jpg"></div>
+<div class="slide"><img src="images/item5-white.jpg"></div>
+
+<div class="arrow left">‹</div>
+<div class="arrow right">›</div>
+</div>
+
+<div class="name">BLACK CAP</div>
+<div class="desc">Classic cap with embroidered logo.</div>
+<div class="price">45$</div>
+<div class="color">Color: Black</div>
+
+<a href="BLACK-LINK-5"
+class="buy-btn" target="_blank">BUY NOW</a>
 </div>
 
 <div class="footer">
@@ -169,45 +232,48 @@ BUY NOW
 </div>
 
 <script>
-const slides = document.querySelectorAll('.slide');
-const left = document.querySelector('.left');
-const right = document.querySelector('.right');
-const colorText = document.getElementById('colorText');
-const buyBtn = document.getElementById('buyBtn');
+const products = document.querySelectorAll('.product');
+
+const links = [
+[
+"https://buy.stripe.com/cNieVdfAabwO5oGclf5Vu03",
+"https://buy.stripe.com/8x200jds2gR804mgBv5Vu02"
+],
+["BLACK-LINK-2","WHITE-LINK-2"],
+["BLACK-LINK-3","WHITE-LINK-3"],
+["BLACK-LINK-4","WHITE-LINK-4"],
+["BLACK-LINK-5","WHITE-LINK-5"]
+];
+
+products.forEach((product,index)=>{
 
 let current = 0;
 
-/* ссылки на оплату */
-const buyLinks = [
-  "https://https://buy.stripe.com/cNieVdfAabwO5oGclf5Vu03",
-  "https://https://buy.stripe.com/8x200jds2gR804mgBv5Vu02"
-];
+const slides = product.querySelectorAll('.slide');
+const left = product.querySelector('.left');
+const right = product.querySelector('.right');
+const color = product.querySelector('.color');
+const btn = product.querySelector('.buy-btn');
 
-/* названия цветов */
-const colors = [
-  "Black",
-  "White"
-];
+function update(){
+slides.forEach(s=>s.classList.remove('active'));
+slides[current].classList.add('active');
 
-function updateSlides(){
-  slides.forEach(slide => slide.classList.remove('active'));
-  slides[current].classList.add('active');
-
-  colorText.innerText = "Color: " + colors[current];
-
-  /* меняем ссылку */
-  buyBtn.href = buyLinks[current];
+color.innerText = "Color: " + (current===0 ? "Black" : "White");
+btn.href = links[index][current];
 }
 
-right.onclick = () => {
-  current = (current + 1) % slides.length;
-  updateSlides();
-};
+right.onclick = ()=>{
+current = (current + 1) % slides.length;
+update();
+}
 
-left.onclick = () => {
-  current = (current - 1 + slides.length) % slides.length;
-  updateSlides();
-};
+left.onclick = ()=>{
+current = (current - 1 + slides.length) % slides.length;
+update();
+}
+
+});
 </script>
 
 </body>
