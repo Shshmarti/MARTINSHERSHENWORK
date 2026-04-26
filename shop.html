@@ -38,42 +38,11 @@ h1{
   border-bottom:1px solid rgba(0,0,0,0.35);
 }
 
-.gallery{
-  position:relative;
-  margin-bottom:15px;
-}
-
-.slide{
-  display:none;
-}
-
-.slide.active{
-  display:block;
-}
-
-.slide img{
+.product img{
   width:100%;
   display:block;
+  margin-bottom:15px;
 }
-
-.arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:34px;
-  height:34px;
-  border-radius:50%;
-  background:rgba(0,0,0,0.35);
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-  cursor:pointer;
-}
-
-.left{left:10px;}
-.right{right:10px;}
 
 .name{
   font-size:22px;
@@ -88,13 +57,33 @@ h1{
 
 .price{
   font-size:16px;
-  margin-bottom:8px;
+  margin-bottom:12px;
 }
 
 .color{
   font-size:13px;
+  margin-bottom:10px;
+  opacity:0.8;
+}
+
+/* выбор цвета */
+.color-buttons{
+  display:flex;
+  gap:10px;
   margin-bottom:18px;
-  opacity:0.7;
+}
+
+.color-btn{
+  padding:10px 16px;
+  border:1px solid black;
+  background:transparent;
+  font-size:13px;
+  cursor:pointer;
+}
+
+.color-btn.active{
+  background:black;
+  color:white;
 }
 
 .buy-btn{
@@ -127,102 +116,127 @@ h1{
 
 <!-- PRODUCT 1 -->
 <div class="product">
-<div class="gallery" data-product="0">
 
-<div class="slide active"><img src="images/item1-black.jpg"></div>
-<div class="slide"><img src="images/item1-white.jpg"></div>
-
-<div class="arrow left">‹</div>
-<div class="arrow right">›</div>
-</div>
+<img src="images/item1-black.jpg" class="product-image">
 
 <div class="name">лонгслив порно студия у шамиля</div>
 <div class="desc">100 хлопок / золотая классика.</div>
 <div class="price">70$</div>
-<div class="color">Color: Black</div>
+
+<div class="color">Color: <span class="current-color">Black</span></div>
+
+<div class="color-buttons">
+<button class="color-btn active"
+onclick="changeColor(this,
+'images/item1-black.jpg',
+'https://buy.stripe.com/cNieVdfAabwO5oGclf5Vu03',
+'Black')">Black</button>
+
+<button class="color-btn"
+onclick="changeColor(this,
+'images/item1-white.jpg',
+'https://buy.stripe.com/8x200jds2gR804mgBv5Vu02',
+'White')">White</button>
+</div>
 
 <a href="https://buy.stripe.com/cNieVdfAabwO5oGclf5Vu03"
-class="buy-btn" target="_blank">BUY NOW</a>
+class="buy-btn"
+target="_blank">
+BUY NOW
+</a>
+
 </div>
 
 <!-- PRODUCT 2 -->
 <div class="product">
-<div class="gallery" data-product="1">
 
-<div class="slide active"><img src="images/item2-black.jpg"></div>
-<div class="slide"><img src="images/item2-white.jpg"></div>
-
-<div class="arrow left">‹</div>
-<div class="arrow right">›</div>
-</div>
+<img src="images/item2-black.jpg" class="product-image">
 
 <div class="name">SERVISEX LONGSLEEVE</div>
 <div class="desc">Long sleeve shirt with logo graphic.</div>
 <div class="price">70$</div>
-<div class="color">Color: Black</div>
 
-<a href="BLACK-LINK-2"
-class="buy-btn" target="_blank">BUY NOW</a>
+<div class="color">Color: <span class="current-color">Black</span></div>
+
+<div class="color-buttons">
+<button class="color-btn active"
+onclick="changeColor(this,'images/item2-black.jpg','BLACK-LINK-2','Black')">Black</button>
+
+<button class="color-btn"
+onclick="changeColor(this,'images/item2-white.jpg','WHITE-LINK-2','White')">White</button>
+</div>
+
+<a href="BLACK-LINK-2" class="buy-btn" target="_blank">BUY NOW</a>
+
 </div>
 
 <!-- PRODUCT 3 -->
 <div class="product">
-<div class="gallery" data-product="2">
 
-<div class="slide active"><img src="images/item3-black.jpg"></div>
-<div class="slide"><img src="images/item3-white.jpg"></div>
-
-<div class="arrow left">‹</div>
-<div class="arrow right">›</div>
-</div>
+<img src="images/item3-black.jpg" class="product-image">
 
 <div class="name">MARTSIN HOODIE</div>
 <div class="desc">Oversized hoodie with artwork print.</div>
 <div class="price">110$</div>
-<div class="color">Color: Black</div>
 
-<a href="BLACK-LINK-3"
-class="buy-btn" target="_blank">BUY NOW</a>
+<div class="color">Color: <span class="current-color">Black</span></div>
+
+<div class="color-buttons">
+<button class="color-btn active"
+onclick="changeColor(this,'images/item3-black.jpg','BLACK-LINK-3','Black')">Black</button>
+
+<button class="color-btn"
+onclick="changeColor(this,'images/item3-white.jpg','WHITE-LINK-3','White')">White</button>
+</div>
+
+<a href="BLACK-LINK-3" class="buy-btn" target="_blank">BUY NOW</a>
+
 </div>
 
 <!-- PRODUCT 4 -->
 <div class="product">
-<div class="gallery" data-product="3">
 
-<div class="slide active"><img src="images/item4-black.jpg"></div>
-<div class="slide"><img src="images/item4-white.jpg"></div>
-
-<div class="arrow left">‹</div>
-<div class="arrow right">›</div>
-</div>
+<img src="images/item4-black.jpg" class="product-image">
 
 <div class="name">SERVISEX ZIP HOODIE</div>
 <div class="desc">Zip hoodie with distressed details.</div>
 <div class="price">125$</div>
-<div class="color">Color: Black</div>
 
-<a href="BLACK-LINK-4"
-class="buy-btn" target="_blank">BUY NOW</a>
+<div class="color">Color: <span class="current-color">Black</span></div>
+
+<div class="color-buttons">
+<button class="color-btn active"
+onclick="changeColor(this,'images/item4-black.jpg','BLACK-LINK-4','Black')">Black</button>
+
+<button class="color-btn"
+onclick="changeColor(this,'images/item4-white.jpg','WHITE-LINK-4','White')">White</button>
+</div>
+
+<a href="BLACK-LINK-4" class="buy-btn" target="_blank">BUY NOW</a>
+
 </div>
 
 <!-- PRODUCT 5 -->
 <div class="product">
-<div class="gallery" data-product="4">
 
-<div class="slide active"><img src="images/item5-black.jpg"></div>
-<div class="slide"><img src="images/item5-white.jpg"></div>
-
-<div class="arrow left">‹</div>
-<div class="arrow right">›</div>
-</div>
+<img src="images/item5-black.jpg" class="product-image">
 
 <div class="name">BLACK CAP</div>
 <div class="desc">Classic cap with embroidered logo.</div>
 <div class="price">45$</div>
-<div class="color">Color: Black</div>
 
-<a href="BLACK-LINK-5"
-class="buy-btn" target="_blank">BUY NOW</a>
+<div class="color">Color: <span class="current-color">Black</span></div>
+
+<div class="color-buttons">
+<button class="color-btn active"
+onclick="changeColor(this,'images/item5-black.jpg','BLACK-LINK-5','Black')">Black</button>
+
+<button class="color-btn"
+onclick="changeColor(this,'images/item5-white.jpg','WHITE-LINK-5','White')">White</button>
+</div>
+
+<a href="BLACK-LINK-5" class="buy-btn" target="_blank">BUY NOW</a>
+
 </div>
 
 <div class="footer">
@@ -232,48 +246,22 @@ class="buy-btn" target="_blank">BUY NOW</a>
 </div>
 
 <script>
-const products = document.querySelectorAll('.product');
+function changeColor(button, imageSrc, stripeLink, colorName){
 
-const links = [
-[
-"https://buy.stripe.com/cNieVdfAabwO5oGclf5Vu03",
-"https://buy.stripe.com/8x200jds2gR804mgBv5Vu02"
-],
-["BLACK-LINK-2","WHITE-LINK-2"],
-["BLACK-LINK-3","WHITE-LINK-3"],
-["BLACK-LINK-4","WHITE-LINK-4"],
-["BLACK-LINK-5","WHITE-LINK-5"]
-];
+const product = button.closest('.product');
 
-products.forEach((product,index)=>{
+const image = product.querySelector('.product-image');
+const buyBtn = product.querySelector('.buy-btn');
+const colorText = product.querySelector('.current-color');
+const buttons = product.querySelectorAll('.color-btn');
 
-let current = 0;
+buttons.forEach(btn => btn.classList.remove('active'));
+button.classList.add('active');
 
-const slides = product.querySelectorAll('.slide');
-const left = product.querySelector('.left');
-const right = product.querySelector('.right');
-const color = product.querySelector('.color');
-const btn = product.querySelector('.buy-btn');
-
-function update(){
-slides.forEach(s=>s.classList.remove('active'));
-slides[current].classList.add('active');
-
-color.innerText = "Color: " + (current===0 ? "Black" : "White");
-btn.href = links[index][current];
+image.src = imageSrc;
+buyBtn.href = stripeLink;
+colorText.innerText = colorName;
 }
-
-right.onclick = ()=>{
-current = (current + 1) % slides.length;
-update();
-}
-
-left.onclick = ()=>{
-current = (current - 1 + slides.length) % slides.length;
-update();
-}
-
-});
 </script>
 
 </body>
