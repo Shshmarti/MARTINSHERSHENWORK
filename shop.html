@@ -17,17 +17,18 @@ body{
   color:black;
 }
 
-/* УБИРАЕМ СИНИЙ ЦВЕТ */
+/* убираем синий цвет у ссылок и кнопок */
 a,
 a:visited,
 a:hover,
-a:active,
-button{
+a:active{
   color:black;
+  text-decoration:none;
 }
 
 button{
   font-family:Helvetica, Arial, sans-serif;
+  color:black;
 }
 
 /* стартовый экран */
@@ -42,53 +43,357 @@ button{
 }
 
 .start-box{
-  text-align:center;
-  padding:30px;
   width:100%;
   max-width:420px;
+  padding:30px;
+  text-align:center;
 }
 
 .start-box h1{
   font-size:26px;
-  margin-bottom:18px;
+  margin:0 0 25px;
 }
 
 .choice-btn{
   display:block;
   width:100%;
-  margin-bottom:15px;
   padding:18px;
+  margin-bottom:15px;
   border:1px solid black;
   background:transparent;
   color:black;
   font-size:18px;
   cursor:pointer;
-  text-decoration:none;
 }
 
 .choice-btn:hover{
   background:black;
   color:white;
 }
+
+/* основной сайт */
+.site-content{
+  display:none;
+}
+
+.site-content.show{
+  display:block;
+}
+
+.container{
+  max-width:500px;
+  margin:0 auto;
+  padding:5px 20px;
+}
+
+img{
+  width:100%;
+  display:block;
+}
+
+h2{
+  font-size:20px;
+  margin:0;
+}
+
+.divider{
+  width:100%;
+  height:1px;
+  background:black;
+  margin:15px 0 25px;
+}
+
+/* меню */
+.menu-toggle{
+  position:fixed;
+  top:20px;
+  right:20px;
+  width:28px;
+  height:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  background:none;
+  border:none;
+  padding:0;
+  z-index:9999;
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  height:2px;
+  background:black;
+  width:100%;
+}
+
+.side-menu{
+  position:fixed;
+  top:70px;
+  right:20px;
+  width:170px;
+  padding:18px;
+  background:rgba(0,0,0,0.2);
+  backdrop-filter:blur(12px);
+  border-radius:14px;
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(-10px);
+  transition:0.3s;
+  z-index:9999;
+}
+
+body.menu-open .side-menu{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0);
+}
+
+.side-menu a{
+  display:block;
+  margin-bottom:12px;
+  color:white;
+}
+
+.close-btn{
+  position:absolute;
+  top:8px;
+  right:8px;
+  width:18px;
+  height:18px;
+  cursor:pointer;
+}
+
+.close-btn::before,
+.close-btn::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:16px;
+  height:2px;
+  background:white;
+}
+
+.close-btn::before{
+  transform:translate(-50%,-50%) rotate(45deg);
+}
+
+.close-btn::after{
+  transform:translate(-50%,-50%) rotate(-45deg);
+}
+
+/* галерея */
+.gallery{
+  position:relative;
+  margin-bottom:40px;
+}
+
+.g-slide{
+  display:none;
+}
+
+.g-slide.active{
+  display:block;
+}
+
+.g-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:rgba(0,0,0,0.35);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.g-left{ left:10px; }
+.g-right{ right:10px; }
+
+/* журнал */
+.cover{
+  position:relative;
+  margin-bottom:40px;
+}
+
+.slide{
+  display:none;
+}
+
+.slide.active{
+  display:block;
+}
+
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:rgba(0,0,0,0.35);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.left{ left:10px; }
+.right{ right:10px; }
+
+.footer{
+  margin-top:80px;
+  padding:40px 20px;
+  text-align:center;
+  font-size:12px;
+  color:rgba(0,0,0,0.6);
+}
 </style>
 </head>
 <body>
 
-<div class="start-screen">
+<!-- старт -->
+<div class="start-screen" id="startScreen">
   <div class="start-box">
 
     <h1>MARTSIN SHERSHAN</h1>
 
-    <button class="choice-btn" onclick="window.location.href='shop.html'">
+    <button class="choice-btn" onclick="goShop()">
       SHOP SERVISEX
     </button>
 
-    <button class="choice-btn" onclick="window.location.href='works.html'">
+    <button class="choice-btn" onclick="enterWorks()">
       ARTWORKS
     </button>
 
   </div>
 </div>
+
+<!-- основной сайт -->
+<div class="site-content" id="siteContent">
+
+<button class="menu-toggle">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<div class="side-menu">
+  <div class="close-btn"></div>
+
+  <a href="shop.html">Shop</a>
+  <a href="video.html">Video</a>
+  <a href="works.html">Works</a>
+  <a href="house.html">House</a>
+  <a href="mailto:thebiggestnobody777@gmail.com">Contact</a>
+</div>
+
+<div class="container">
+
+<h2>MARTSIN SHERSHAN</h2>
+<div class="divider"></div>
+
+<!-- галерея -->
+<div class="gallery">
+
+<div class="g-slide active"><img src="images/photo2.jpg"></div>
+<div class="g-slide"><img src="images/photo1.jpg"></div>
+<div class="g-slide"><img src="images/gif0.gif"></div>
+<div class="g-slide"><img src="images/gif2.gif"></div>
+<div class="g-slide"><img src="images/gif3.gif"></div>
+
+<div class="g-arrow g-left">‹</div>
+<div class="g-arrow g-right">›</div>
+
+</div>
+
+<!-- журнал -->
+<div class="cover">
+
+<img src="images/photo10.jpg" class="slide active">
+<img src="images/photo11.jpg" class="slide">
+<img src="images/photo12.jpg" class="slide">
+
+<div class="arrow left">‹</div>
+<div class="arrow right">›</div>
+
+</div>
+
+<div class="footer">
+© MARTSIN SHERSHAN
+</div>
+
+</div>
+</div>
+
+<script>
+/* старт */
+function goShop(){
+  window.location.href = "shop.html";
+}
+
+function enterWorks(){
+  document.getElementById("startScreen").style.display = "none";
+  document.getElementById("siteContent").classList.add("show");
+}
+
+/* меню */
+const btn = document.querySelector('.menu-toggle');
+const closeBtn = document.querySelector('.close-btn');
+
+btn.onclick = () => {
+  document.body.classList.toggle('menu-open');
+};
+
+closeBtn.onclick = () => {
+  document.body.classList.remove('menu-open');
+};
+
+/* журнал */
+const slides = document.querySelectorAll('.slide');
+let current = 0;
+
+function updateSlides(){
+  slides.forEach(s => s.classList.remove('active'));
+  slides[current].classList.add('active');
+}
+
+document.querySelector('.right').onclick = () => {
+  current = (current + 1) % slides.length;
+  updateSlides();
+};
+
+document.querySelector('.left').onclick = () => {
+  current = (current - 1 + slides.length) % slides.length;
+  updateSlides();
+};
+
+/* галерея */
+const gSlides = document.querySelectorAll('.g-slide');
+let gCurrent = 0;
+
+function updateGallery(){
+  gSlides.forEach(s => s.classList.remove('active'));
+  gSlides[gCurrent].classList.add('active');
+}
+
+document.querySelector('.g-right').onclick = () => {
+  gCurrent = (gCurrent + 1) % gSlides.length;
+  updateGallery();
+};
+
+document.querySelector('.g-left').onclick = () => {
+  gCurrent = (gCurrent - 1 + gSlides.length) % gSlides.length;
+  updateGallery();
+};
+</script>
 
 </body>
 </html>
