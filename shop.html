@@ -38,11 +38,44 @@ h1{
   border-bottom:1px solid rgba(0,0,0,0.35);
 }
 
-.product img{
-  width:100%;
-  display:block;
+/* ГАЛЕРЕЯ ТОВАРА */
+.gallery{
+  position:relative;
   margin-bottom:15px;
 }
+
+.slide{
+  display:none;
+  width:100%;
+}
+
+.slide.active{
+  display:block;
+}
+
+.slide img{
+  width:100%;
+  display:block;
+}
+
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:rgba(0,0,0,0.35);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.left{ left:10px; }
+.right{ right:10px; }
 
 .name{
   font-size:22px;
@@ -57,7 +90,13 @@ h1{
 
 .price{
   font-size:16px;
+  margin-bottom:8px;
+}
+
+.color{
+  font-size:13px;
   margin-bottom:18px;
+  opacity:0.7;
 }
 
 .buy-btn{
@@ -90,92 +129,33 @@ h1{
 
 <!-- ITEM 1 -->
 <div class="product">
-  <img src="images/item1.jpg">
-  <div class="name">лонгслив порно студия у шамиля</div>
-  <div class="desc">100 хлопок/ золтая классика.</div>
-  <div class="price">70$</div>
-  <a href="https://buy.stripe.com/dRm5kD73EcAS5oG3OJ5Vu01" class="buy-btn" target="_blank">BUY NOW</a>
+
+<div class="gallery">
+
+<div class="slide active">
+  <img src="images/item1-black.jpg">
 </div>
 
-<!-- ITEM 2 -->
-<div class="product">
-  <img src="images/item2.jpg">
-  <div class="name">SERVISEX LONGSLEEVE</div>
-  <div class="desc">Long sleeve shirt with logo graphic.</div>
-  <div class="price">€70</div>
-  <a href="PASTE_STRIPE_LINK_HERE_2" class="buy-btn" target="_blank">BUY NOW</a>
+<div class="slide">
+  <img src="images/item1-white.jpg">
 </div>
 
-<!-- ITEM 3 -->
-<div class="product">
-  <img src="images/item3.jpg">
-  <div class="name">MARTSIN HOODIE</div>
-  <div class="desc">Oversized hoodie with artwork print.</div>
-  <div class="price">€110</div>
-  <a href="PASTE_STRIPE_LINK_HERE_3" class="buy-btn" target="_blank">BUY NOW</a>
+<div class="arrow left">‹</div>
+<div class="arrow right">›</div>
+
 </div>
 
-<!-- ITEM 4 -->
-<div class="product">
-  <img src="images/item4.jpg">
-  <div class="name">SERVISEX ZIP HOODIE</div>
-  <div class="desc">Zip hoodie with distressed details.</div>
-  <div class="price">€125</div>
-  <a href="PASTE_STRIPE_LINK_HERE_4" class="buy-btn" target="_blank">BUY NOW</a>
-</div>
+<div class="name">лонгслив порно студия у шамиля</div>
+<div class="desc">100 хлопок / золотая классика.</div>
+<div class="price">70$</div>
+<div class="color" id="colorText">Color: Black</div>
 
-<!-- ITEM 5 -->
-<div class="product">
-  <img src="images/item5.jpg">
-  <div class="name">BLACK CAP</div>
-  <div class="desc">Classic cap with embroidered logo.</div>
-  <div class="price">€45</div>
-  <a href="PASTE_STRIPE_LINK_HERE_5" class="buy-btn" target="_blank">BUY NOW</a>
-</div>
+<a href="https://buy.stripe.com/dRm5kD73EcAS5oG3OJ5Vu01"
+class="buy-btn"
+target="_blank">
+BUY NOW
+</a>
 
-<!-- ITEM 6 -->
-<div class="product">
-  <img src="images/item6.jpg">
-  <div class="name">GRAPHIC TANK TOP</div>
-  <div class="desc">Sleeveless top with raw edges.</div>
-  <div class="price">€48</div>
-  <a href="PASTE_STRIPE_LINK_HERE_6" class="buy-btn" target="_blank">BUY NOW</a>
-</div>
-
-<!-- ITEM 7 -->
-<div class="product">
-  <img src="images/item7.jpg">
-  <div class="name">DENIM JACKET</div>
-  <div class="desc">Washed denim with custom back print.</div>
-  <div class="price">€160</div>
-  <a href="PASTE_STRIPE_LINK_HERE_7" class="buy-btn" target="_blank">BUY NOW</a>
-</div>
-
-<!-- ITEM 8 -->
-<div class="product">
-  <img src="images/item8.jpg">
-  <div class="name">TRACK PANTS</div>
-  <div class="desc">Relaxed fit pants with side stripe.</div>
-  <div class="price">€95</div>
-  <a href="PASTE_STRIPE_LINK_HERE_8" class="buy-btn" target="_blank">BUY NOW</a>
-</div>
-
-<!-- ITEM 9 -->
-<div class="product">
-  <img src="images/item9.jpg">
-  <div class="name">SERVISEX BAG</div>
-  <div class="desc">Canvas bag with front logo print.</div>
-  <div class="price">€38</div>
-  <a href="PASTE_STRIPE_LINK_HERE_9" class="buy-btn" target="_blank">BUY NOW</a>
-</div>
-
-<!-- ITEM 10 -->
-<div class="product">
-  <img src="images/item10.jpg">
-  <div class="name">LIMITED ART SHIRT</div>
-  <div class="desc">Exclusive drop. Numbered release.</div>
-  <div class="price">€90</div>
-  <a href="PASTE_STRIPE_LINK_HERE_10" class="buy-btn" target="_blank">BUY NOW</a>
 </div>
 
 <div class="footer">
@@ -183,6 +163,32 @@ h1{
 </div>
 
 </div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const left = document.querySelector('.left');
+const right = document.querySelector('.right');
+const colorText = document.getElementById('colorText');
+
+let current = 0;
+const colors = ['Black', 'White'];
+
+function updateSlides(){
+  slides.forEach(slide => slide.classList.remove('active'));
+  slides[current].classList.add('active');
+  colorText.innerText = 'Color: ' + colors[current];
+}
+
+right.onclick = () => {
+  current = (current + 1) % slides.length;
+  updateSlides();
+};
+
+left.onclick = () => {
+  current = (current - 1 + slides.length) % slides.length;
+  updateSlides();
+};
+</script>
 
 </body>
 </html>
