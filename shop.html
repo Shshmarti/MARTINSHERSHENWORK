@@ -14,7 +14,7 @@ body{
 }
 
 .container{
-  max-width:900px;
+  max-width:560px;
   margin:0 auto;
   padding:20px;
 }
@@ -26,57 +26,47 @@ h1{
 
 .top-link{
   display:inline-block;
-  margin-bottom:25px;
+  margin-bottom:30px;
   color:black;
   text-decoration:none;
   border-bottom:1px solid black;
 }
 
-/* СЕТКА */
-.products{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
-}
-
-/* карточка */
 .product{
-  padding-bottom:12px;
+  margin-bottom:55px;
+  padding-bottom:35px;
+  border-bottom:1px solid rgba(0,0,0,0.35);
 }
 
 .product img{
   width:100%;
-  aspect-ratio:1/1;
-  object-fit:cover;
   display:block;
-  margin-bottom:10px;
+  margin-bottom:15px;
 }
 
 .name{
-  font-size:14px;
-  line-height:1.25;
-  margin-bottom:6px;
-}
-
-.desc{
-  font-size:11px;
-  line-height:1.3;
-  opacity:0.75;
+  font-size:22px;
   margin-bottom:8px;
 }
 
-.price{
-  font-size:13px;
+.desc{
+  font-size:14px;
+  line-height:1.4;
   margin-bottom:10px;
+}
+
+.price{
+  font-size:16px;
+  margin-bottom:18px;
 }
 
 .buy-btn{
   display:inline-block;
-  padding:8px 12px;
+  padding:14px 24px;
   border:1px solid black;
   color:black;
   text-decoration:none;
-  font-size:11px;
+  font-size:14px;
 }
 
 .buy-btn:hover{
@@ -85,16 +75,9 @@ h1{
 }
 
 .footer{
-  padding:45px 0 20px;
+  padding:40px 0 20px;
   font-size:12px;
   opacity:0.6;
-}
-
-/* desktop */
-@media (min-width:900px){
-  .products{
-    grid-template-columns:repeat(4,1fr);
-  }
 }
 </style>
 </head>
@@ -105,15 +88,13 @@ h1{
 <h1>SHOP SERVISEX</h1>
 <a href="index.html" class="top-link">← BACK</a>
 
-<div class="products">
-
 <!-- ITEM 1 -->
 <div class="product">
   <img src="images/item1.jpg">
   <div class="name">лонгслив порно студия у шамиля</div>
-  <div class="desc">100 хлопок / золотая классика.</div>
+  <div class="desc">100 хлопок/ золтая классика.</div>
   <div class="price">70$</div>
-  <a href="https://buy.stripe.com/dRm5kD73EcAS5oG3OJ5Vu01" class="buy-btn" target="_blank">BUY</a>
+  <a href="https://buy.stripe.com/dRm5kD73EcAS5oG3OJ5Vu01" class="buy-btn" target="_blank">BUY NOW</a>
 </div>
 
 <!-- ITEM 2 -->
@@ -122,7 +103,7 @@ h1{
   <div class="name">SERVISEX LONGSLEEVE</div>
   <div class="desc">Long sleeve shirt with logo graphic.</div>
   <div class="price">€70</div>
-  <a href="PASTE_STRIPE_LINK_HERE_2" class="buy-btn" target="_blank">BUY</a>
+  <a href="PASTE_STRIPE_LINK_HERE_2" class="buy-btn" target="_blank">BUY NOW</a>
 </div>
 
 <!-- ITEM 3 -->
@@ -131,7 +112,7 @@ h1{
   <div class="name">MARTSIN HOODIE</div>
   <div class="desc">Oversized hoodie with artwork print.</div>
   <div class="price">€110</div>
-  <a href="PASTE_STRIPE_LINK_HERE_3" class="buy-btn" target="_blank">BUY</a>
+  <a href="PASTE_STRIPE_LINK_HERE_3" class="buy-btn" target="_blank">BUY NOW</a>
 </div>
 
 <!-- ITEM 4 -->
@@ -140,7 +121,7 @@ h1{
   <div class="name">SERVISEX ZIP HOODIE</div>
   <div class="desc">Zip hoodie with distressed details.</div>
   <div class="price">€125</div>
-  <a href="PASTE_STRIPE_LINK_HERE_4" class="buy-btn" target="_blank">BUY</a>
+  <a href="PASTE_STRIPE_LINK_HERE_4" class="buy-btn" target="_blank">BUY NOW</a>
 </div>
 
 <!-- ITEM 5 -->
@@ -149,7 +130,7 @@ h1{
   <div class="name">BLACK CAP</div>
   <div class="desc">Classic cap with embroidered logo.</div>
   <div class="price">€45</div>
-  <a href="PASTE_STRIPE_LINK_HERE_5" class="buy-btn" target="_blank">BUY</a>
+  <a href="PASTE_STRIPE_LINK_HERE_5" class="buy-btn" target="_blank">BUY NOW</a>
 </div>
 
 <!-- ITEM 6 -->
@@ -158,7 +139,7 @@ h1{
   <div class="name">GRAPHIC TANK TOP</div>
   <div class="desc">Sleeveless top with raw edges.</div>
   <div class="price">€48</div>
-  <a href="PASTE_STRIPE_LINK_HERE_6" class="buy-btn" target="_blank">BUY</a>
+  <a href="PASTE_STRIPE_LINK_HERE_6" class="buy-btn" target="_blank">BUY NOW</a>
 </div>
 
 <!-- ITEM 7 -->
@@ -167,7 +148,7 @@ h1{
   <div class="name">DENIM JACKET</div>
   <div class="desc">Washed denim with custom back print.</div>
   <div class="price">€160</div>
-  <a href="PASTE_STRIPE_LINK_HERE_7" class="buy-btn" target="_blank">BUY</a>
+  <a href="PASTE_STRIPE_LINK_HERE_7" class="buy-btn" target="_blank">BUY NOW</a>
 </div>
 
 <!-- ITEM 8 -->
@@ -176,7 +157,7 @@ h1{
   <div class="name">TRACK PANTS</div>
   <div class="desc">Relaxed fit pants with side stripe.</div>
   <div class="price">€95</div>
-  <a href="PASTE_STRIPE_LINK_HERE_8" class="buy-btn" target="_blank">BUY</a>
+  <a href="PASTE_STRIPE_LINK_HERE_8" class="buy-btn" target="_blank">BUY NOW</a>
 </div>
 
 <!-- ITEM 9 -->
@@ -185,7 +166,7 @@ h1{
   <div class="name">SERVISEX BAG</div>
   <div class="desc">Canvas bag with front logo print.</div>
   <div class="price">€38</div>
-  <a href="PASTE_STRIPE_LINK_HERE_9" class="buy-btn" target="_blank">BUY</a>
+  <a href="PASTE_STRIPE_LINK_HERE_9" class="buy-btn" target="_blank">BUY NOW</a>
 </div>
 
 <!-- ITEM 10 -->
@@ -194,9 +175,7 @@ h1{
   <div class="name">LIMITED ART SHIRT</div>
   <div class="desc">Exclusive drop. Numbered release.</div>
   <div class="price">€90</div>
-  <a href="PASTE_STRIPE_LINK_HERE_10" class="buy-btn" target="_blank">BUY</a>
-</div>
-
+  <a href="PASTE_STRIPE_LINK_HERE_10" class="buy-btn" target="_blank">BUY NOW</a>
 </div>
 
 <div class="footer">
