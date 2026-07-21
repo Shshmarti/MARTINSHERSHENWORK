@@ -260,21 +260,34 @@ onclick="changeColor(this,'images/item3-white.jpg','https://buy.stripe.com/5kQ00
 <!-- PRODUCT 5 -->
 <div class="product">
 
-<img src="images/item5-black.jpg" class="product-image">
-<img src="images/item6-black.jpg" class="product-image">
-<img src="images/item7-black.jpg" class="product-image">
+    <img src="images/item5-black.jpg" class="product-image" id="item5-main">
 
+    <!-- Миниатюры -->
+    <div class="thumbs">
+        <img src="images/item5-black.jpg"
+             class="thumb"
+             onclick="document.getElementById('item5-main').src='images/item5-black.jpg'">
 
+        <img src="images/item6-black.jpg"
+             class="thumb"
+             onclick="document.getElementById('item5-main').src='images/item6-black.jpg'">
 
-<div class="name">
-  </div>
-<div class="desc">лонгслив пусть лушче в мышщах</div>
-<div class="price">50$</div>
+        <img src="images/item7-black.jpg"
+             class="thumb"
+             onclick="document.getElementById('item5-main').src='images/item7-black.jpg'">
+    </div>
 
+    <div class="name"></div>
 
-<div class="buy-row">
-<a href="BLACK-LINK-5" class="buy-btn" target="_blank">BUY NOW</a>
-<a href="https://t.me/shshmarti?text=Привет, я с сайта SERVISEX хочу сделать заказ" class="rus-btn" target="_blank">ОПЛАТА ДЛЯ РОССИИ</a>
+    <div class="desc">лонгслив пусть лучше в мышцах будет боль</div>
+
+    <div class="price">50$</div>
+
+    <div class="buy-row">
+        <a href="BLACK-LINK-5" class="buy-btn" target="_blank">BUY NOW</a>
+        <a href="https://t.me/shshmarti?text=Привет, я с сайта SERVISEX хочу сделать заказ" class="rus-btn" target="_blank">ОПЛАТА ДЛЯ РОССИИ</a>
+    </div>
+
 </div>
 
 </div>
