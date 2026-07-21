@@ -6,6 +6,36 @@
 <title>SERVISEX</title>
 
 <style>
+  .slider{
+    position:relative;
+}
+
+.slide-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:42px;
+    height:42px;
+    border:none;
+    background:rgba(0,0,0,.45);
+    color:white;
+    font-size:24px;
+    cursor:pointer;
+    border-radius:50%;
+    transition:.2s;
+}
+
+.slide-btn:hover{
+    background:black;
+}
+
+.left{
+    left:12px;
+}
+
+.right{
+    right:12px;
+}
 *{
   box-sizing:border-box;
 }
@@ -280,33 +310,27 @@ onclick="changeColor(this,'images/item3-white.jpg','https://buy.stripe.com/5kQ00
 <!-- PRODUCT 5 -->
 <div class="product">
 
-    <img src="images/item5-black.jpg" class="product-image" id="item5-main">
+<div class="slider">
 
-    <!-- Миниатюры -->
-    <div class="thumbs">
-        <img src="images/item5-black.jpg"
-             class="thumb"
-             onclick="document.getElementById('item5-main').src='images/item5-black.jpg'">
+<img src="images/item5-black.jpg" class="product-image" id="item5-img">
 
-        <img src="images/item6-black.jpg"
-             class="thumb"
-             onclick="document.getElementById('item5-main').src='images/item6-black.jpg'">
+<button class="slide-btn left" onclick="changeSlide5(-1)">❮</button>
+<button class="slide-btn right" onclick="changeSlide5(1)">❯</button>
 
-        <img src="images/item7-black.jpg"
-             class="thumb"
-             onclick="document.getElementById('item5-main').src='images/item7-black.jpg'">
-    </div>
+</div>
 
-    <div class="name">лонгслив пусть лучше в мышцах будет боль</div>
+<div class="name">лонгслив пусть лучше в мышцах будет боль</div>
 
-    <div class="desc">пацанский фит,никаких приколов</div>
+<div class="desc">без выебонов в город</div>
 
-    <div class="price">50$</div>
+<div class="price">50$</div>
 
-    <div class="buy-row">
-        <a href="BLACK-LINK-5" class="buy-btn" target="_blank">BUY NOW</a>
-        <a href="https://t.me/shshmarti?text=Привет, я с сайта SERVISEX хочу сделать заказ" class="rus-btn" target="_blank">ОПЛАТА ДЛЯ РОССИИ</a>
-    </div>
+<div class="buy-row">
+<a href="BLACK-LINK-5" class="buy-btn" target="_blank">BUY NOW</a>
+<a href="https://t.me/shshmarti?text=Привет, я с сайта SERVISEX хочу сделать заказ" class="rus-btn" target="_blank">ОПЛАТА ДЛЯ РОССИИ</a>
+</div>
+
+</div>
 
 </div>
 
@@ -319,6 +343,25 @@ onclick="changeColor(this,'images/item3-white.jpg','https://buy.stripe.com/5kQ00
 </div>
 
 <script>
+  const item5Images = [
+    "images/item5-black.jpg",
+    "images/item6-black.jpg",
+    "images/item7-black.jpg"
+];
+
+let item5Index = 0;
+
+function changeSlide5(step){
+    item5Index += step;
+
+    if(item5Index < 0)
+        item5Index = item5Images.length - 1;
+
+    if(item5Index >= item5Images.length)
+        item5Index = 0;
+
+    document.getElementById("item5-img").src = item5Images[item5Index];
+}
 function changeColor(button,imageSrc,stripeLink,colorName){
 
 const product = button.closest('.product');
